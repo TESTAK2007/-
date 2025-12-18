@@ -1,0 +1,83 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет карточкам переноситься на новую строку */
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стили карточки */
+.card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 40px 30px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease; /* Плавность для hover-эффекта */
+    
+    /* Начальная анимация появления */
+    animation: fadeInUp 0.8s ease backwards;
+}
+
+/* Кастомные заголовки Google Fonts */
+.card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    color: #333;
+    margin: 20px 0 10px;
+}
+
+.card-description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* ЭФФЕКТ НАВЕДЕНИЯ (Hover) */
+.card:hover {
+    transform: translateY(-10px); /* Приподнимаем карточку */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    border-bottom: 4px solid #007bff; /* Акцентная линия */
+}
+
+/* CSS АНИМАЦИЯ ПОЯВЛЕНИЯ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Задержка появления каждой карточки для красоты */
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.4s; }
+
+/* АДАПТИВНОСТЬ (Media-запросы) */
+@media (max-width: 768px) {
+    .container {
+        gap: 20px;
+    }
+    
+    .card {
+        width: 100%; /* На мобильных карточка занимает всю ширину */
+        max-width: 400px;
+    }
+}
